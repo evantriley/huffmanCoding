@@ -7,8 +7,11 @@ import java.util.Scanner;
 public class HuffmanLab 
 {
     
-    public static void main(String[] args) throws FileNotFoundException
-    {
+    // Huffman Lab - By reading in a plain text file and tracking the appearance frequency of each characer,
+    //    a huffman tree may be created.  Using this binary tree, each character will be assigned a bit value based
+    //    on it's frequency in the file.  A new file will then be created, and each character will be replaced by its
+    //    binary equivalent.  This compressed file will then be reread, and converted back to ASCII to check for parity.
+    public static void main(String[] args) throws FileNotFoundException {
         character rootnode, topnode;
         Huffman huffman = new Huffman();
         // reads a text file titled "originalfile.txt"
@@ -16,7 +19,9 @@ public class HuffmanLab
         File file = new File(filename);
         Scanner reader = new Scanner(file);
         huffman.initializehuffman();
-        // reads in a text file
+        //  If the next line of the text file is not blank, it is read and then split over blank space into an array.
+        //  Each character is then passed to the huffman method to either be pushed into the queue,
+        //    or so that the characters frequency value may be updated.
         while (reader.hasNextLine())
         {
             String linein = (reader.nextLine());
